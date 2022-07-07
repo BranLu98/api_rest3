@@ -29,10 +29,9 @@ class Cliente (BaseModel):
 
 
 origin = [
-    "http://localhost:8080",
-    "http://127.0.0.1:8000",
-    "https://8000-brandonbalu-apirest3-6kdpz8c3moh.ws-us51.gitpod.io/",
-    "https://8000-brandonbalu-apirest3-6kdpz8c3moh.ws-us47.gitpod.io/",
+
+    "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/",
+    "https://8080-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/",
     
 ]
 
