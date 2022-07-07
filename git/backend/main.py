@@ -93,6 +93,12 @@ async def get_clientesid(level: int = Depends(get_current_level),id_cliente: int
             cursor = connection.cursor()
             cursor.execute("SELECT * FROM clientes WHERE id_cliente={}".format(id_cliente))
             response = cursor.fetchall()
+            if response is None:
+                raise HTTPException(
+                    status_code = status.HTTP_404_NOT_FOUND,
+                    detail      = "Cliente not found",
+                    headers     = {"WWW-Authenticate": "Basic"},
+                )
             return response
     else:
         raise HTTPException(

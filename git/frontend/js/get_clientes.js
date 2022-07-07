@@ -22,7 +22,7 @@ function getClientes() {
             <th>Email</th>
         </tr>`;
 
-    request.send();
+    
 
    
     request.onload = () => {
@@ -55,5 +55,5 @@ function getClientes() {
             tabla.appendChild(tblBody);
         }
     };
-    
+    request.send();
 }
