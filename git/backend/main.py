@@ -111,7 +111,7 @@ async def get_clientesid(level: int = Depends(get_current_level),id_cliente: int
 @app.post("/clientes/", response_model=Respuesta,status_code=status.HTTP_202_ACCEPTED,
 summary="Inserta un usuario",description="Inserta un usuario")
 async def post_clientes(level: int = Depends(get_current_level),nombre: str="", email:str=""):
-    if level == 0: 
+    if level == 1: 
         with sqlite3.connect(DATABASE_URL) as connection:
             connection.row_factory = sqlite3.Row
             cursor = connection.cursor()
@@ -129,7 +129,7 @@ async def post_clientes(level: int = Depends(get_current_level),nombre: str="", 
 @app.put("/clientes/", response_model=Respuesta,status_code=status.HTTP_202_ACCEPTED,
 summary="Actualiza un usuario",description="Actualiza un usuario")
 async def put_clientes(level: int = Depends(get_current_level), id_cliente: int=0, nombre: str="", email:str=""):
-    if level == 0: 
+    if level == 1: 
         with sqlite3.connect(DATABASE_URL) as connection:
             connection.row_factory = sqlite3.Row
             cursor = connection.cursor()
@@ -148,7 +148,7 @@ async def put_clientes(level: int = Depends(get_current_level), id_cliente: int=
 @app.delete("/clientes/", response_model=Respuesta,status_code=status.HTTP_202_ACCEPTED,
 summary="Elimina un usuario",description="Elimina un usuario")
 async def delete_clientes(level: int = Depends(get_current_level), id_cliente: int=0):
-    if level == 0: 
+    if level == 1: 
         with sqlite3.connect(DATABASE_URL) as connection:
             connection.row_factory = sqlite3.Row
             cursor = connection.cursor()

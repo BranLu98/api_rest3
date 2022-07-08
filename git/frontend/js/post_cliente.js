@@ -1,9 +1,8 @@
 function PostCliente(){
-    
-    var request = new XMLHttpRequest();
 
-    usernombre = window.prompt('Usernombre:')
-    password = window.prompt('Password:')
+
+    usernombre  = window.prompt('Usernombre:')
+    password    = window.prompt('Password:')
 
     let nombre = document.getElementById("nombre");
     let email  = document.getElementById("email");
@@ -16,8 +15,8 @@ function PostCliente(){
     console.log("nombre: " + nombre.value);
     console.log("email: "  + email.value);
     
-
-    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
+    var request = new XMLHttpRequest();
+    request.open('POST', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
     request.setRequestHeader("content-type", "application/json");
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
