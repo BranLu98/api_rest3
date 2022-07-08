@@ -1,7 +1,6 @@
 function getClientes() {
 
     var request = new XMLHttpRequest();
-    //Accede a la session de la pagina
     usernombre = window.prompt('Usernombre:')
     password = window.prompt('Password:')
 
@@ -17,6 +16,7 @@ function getClientes() {
 
     tblHead.innerHTML = `
         <tr>
+            <th>Detalle</th>
             <th>ID Cliente</th>
             <th>Nombre</th>
             <th>Email</th>
@@ -29,6 +29,7 @@ function getClientes() {
         if (request.status === 401 || request.status === 403) {
             alert(json.detail);
         }
+        
         else if (request.status == 202){
             const response = request.responseText;
             const json = JSON.parse(response);
@@ -39,7 +40,7 @@ function getClientes() {
                 var nombre      = document.createElement('td');
                 var email       = document.createElement('td');
 
-                detalle.innerHTML       = "<a href='/get_cliente.html?"+json[i].id_cliente+"'>Detalle</a";
+                detalle.innerHTML       = "<a href='/templates/get_cliente.html?"+json[i].id_cliente+"'>Detalle</a";
                 id_cliente.innerHTML    = json[i].id_cliente;
                 nombre.innerHTML        = json[i].nombre;
                 email.innerHTML         = json[i].email;

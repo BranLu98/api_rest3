@@ -1,16 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="es">
     <header>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Index</title>
+        <title>DOM javascript</title>
     </header>
     <body>
-        <h1>Menù</h1>
+        <h1>DOM javascript</h1>
+        <script type="text/javascript" src="/js/get_clientes.js"></script>
+        <table id="tabla_clientes">
 
-        <a href="/templates/get_clientes.html">Get Clientes</a>
-        <a href="/templates/get_cliente.html">Get cliente por id</a>
+        </table>
 
+        <script async>
+            document.body.onload = getClientes();
+        </script>
     </body>
 </html>

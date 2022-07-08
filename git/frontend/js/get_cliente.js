@@ -1,29 +1,43 @@
 function getCliente(){
+
+    var request = new XMLHttpRequest();
+    usernombre = window.prompt('Usernombre:')
+    password = window.prompt('Password:')
+
     var id_cliente = window.location.search.substring(1);
     console.log("id_cliente: " + id_cliente);
     
-    var request = new XMLHttpRequest();
-    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/clientes/"+id_cliente,true);
+    
+    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/"+ id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
 
+    request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
+    request.setRequestHeader("content-type", "application/json");
+
+    
     request.onload = () => {
         
         const response  = request.responseText;
         const json      = JSON.parse(response);
         const status    = request.status;
 
-        console.log("Response: " + response);
-        console.log("JSON: " + json);
-        console.log("Status: " + status);
+        if (request.status === 401 || request.status === 403) {
+            alert(json.detail);
+        }
 
-        if (status == 200){
+        else if (request.status == 202){
+
+            console.log("Response: " + response);
+            console.log("JSON: " + json);
+            console.log("Status: " + status);
+            console.log("Nombre: " + json.nombre);
+
             let nombre  = document.getElementById("nombre");
             let email   = document.getElementById("email");
 
             nombre.value    = json.nombre;
             email.value     = json.email;
         }
-
         else if(status==404){
             let nombre  = document.getElementById("nombre");
             let email   = document.getElementById("email");
