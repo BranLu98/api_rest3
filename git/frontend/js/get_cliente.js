@@ -28,19 +28,19 @@ function getCliente(){
         }
 
         else if (request.status == 202){
-            const response = request.responseText;
-            const json = JSON.parse(response);
 
             console.log("Response: " + response);
             console.log("JSON: " + json);
             console.log("Status: " + status);
-            console.log("Nombre: " + json.nombre);
+
+            console.log("Nombre: "+ json[0].nombre);
+            console.log("Email: "+ json[0].email);
 
             let nombre  = document.getElementById("nombre");
             let email   = document.getElementById("email");
 
-            nombre.value    = json.nombre;
-            email.value     = json.email;
+            nombre.value    = json[0].nombre;
+            email.value     = json[0].email;
         }
         else if(status==404){
             let nombre  = document.getElementById("nombre");
