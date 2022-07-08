@@ -4,7 +4,7 @@ function getClientes() {
     usernombre = window.prompt('Usernombre:')
     password = window.prompt('Password:')
 
-    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/");
+    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/clientes/");
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
     request.setRequestHeader("content-type", "application/json");

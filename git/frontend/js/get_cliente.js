@@ -8,7 +8,7 @@ function getCliente(){
     console.log("id_cliente: " + id_cliente);
     
     
-    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/"+ id_cliente,true);
+    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/clientes/{id}?id_cliente="+ id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
 
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
@@ -19,6 +19,8 @@ function getCliente(){
         
         const response  = request.responseText;
         const json      = JSON.parse(response);
+        
+
         const status    = request.status;
 
         if (request.status === 401 || request.status === 403) {
@@ -26,6 +28,8 @@ function getCliente(){
         }
 
         else if (request.status == 202){
+            const response = request.responseText;
+            const json = JSON.parse(response);
 
             console.log("Response: " + response);
             console.log("JSON: " + json);
