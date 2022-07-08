@@ -29,8 +29,8 @@ class Cliente (BaseModel):
 
 
 origin = [
-    "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/",
-    "https://8080-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/",
+    "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
+    "https://8080-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
     
     
 ]
