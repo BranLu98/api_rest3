@@ -14,10 +14,11 @@ function PostCliente(){
 
     console.log("nombre: " + nombre.value);
     console.log("email: "  + email.value);
+    console.log(payload);
     
     var request = new XMLHttpRequest();
     request.open('POST', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
-    request.setRequestHeader("content-type", "application/json");
+    request.setRequestHeader("Content-Type", "application/json");
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
     
@@ -40,7 +41,7 @@ function PostCliente(){
             console.log("Status: " + status);
 
             alert(json.message);
-            window.location.replace("/templates/get_clientes.html")
+            //window.location.replace("/templates/get_clientes.html")
         }
     };
     request.send(JSON.stringify(payload));
