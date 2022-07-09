@@ -1,4 +1,4 @@
-function getCliente(){
+function PutCliente(){
 
     var request = new XMLHttpRequest();
     usernombre = window.prompt('Usernombre:')
