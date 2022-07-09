@@ -18,12 +18,14 @@
             <input type="email" id="email" name="email">
             <br>
             <br>
-            <input type="button" value="Actualizar">
+            <input type="button" value="Actualizar" onclick="PutCliente()">
         </form>
 
         <script type="text/javascript" src="/js/update_clientes.js"></script>
+        
+        <script type="text/javascript" src="/js/get_cliente.js"></script>
         <script async>
-            document.body.onload = PutCliente();
+            document.body.onload = getCliente();
         </script>
     </body>
 </html>
