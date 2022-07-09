@@ -132,12 +132,12 @@ async def post_clientes(cliente: ClienteIN, level: int = Depends(get_current_lev
 
 @app.put("/clientes/", response_model=Respuesta,status_code=status.HTTP_202_ACCEPTED,
 summary="Actualiza un usuario",description="Actualiza un usuario")
-async def put_clientes(level: int = Depends(get_current_level), id_cliente: int=0, nombre: str="", email:str=""):
+async def put_clientes(cliente: Cliente, level: int = Depends(get_current_level)):
     if level == 1: 
         with sqlite3.connect(DATABASE_URL) as connection:
             connection.row_factory = sqlite3.Row
             cursor = connection.cursor()
-            cursor.execute("UPDATE clientes SET nombre =?, email= ? WHERE id_cliente =?;",(nombre, email, id_cliente))
+            cursor.execute("UPDATE clientes SET nombre =?, email= ? WHERE id_cliente =?;",(cliente.nombre, cliente.email, cliente.id_cliente))
             connection.commit()
             response = {"message":"Cliente actualizado"}
             return response

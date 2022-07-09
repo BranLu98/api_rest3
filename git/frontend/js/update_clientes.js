@@ -5,10 +5,24 @@ function PutCliente(){
     password = window.prompt('Password:')
 
     var id_cliente = window.location.search.substring(1);
+    
+    let id_cliente1 = id_cliente;
+    let nombre = document.getElementById("nombre");
+    let email  = document.getElementById("email");
+
+    let payload = {
+        "id_cliente": id_cliente1,
+        "nombre": nombre.value,
+        "email" : email.value,
+    }
+
     console.log("id_cliente: " + id_cliente);
+    console.log("nombre: " + nombre.value);
+    console.log("email: "  + email.value);
+    console.log(payload);
     
     
-    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/{id}?id_cliente="+ id_cliente,true);
+    request.open('PUT', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
     request.setRequestHeader("Accept", "application/json");
 
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
@@ -18,9 +32,7 @@ function PutCliente(){
     request.onload = () => {
         
         const response  = request.responseText;
-        const json      = JSON.parse(response);
-        
-
+        const json      = JSON.parse(response);     
         const status    = request.status;
 
         if (request.status === 401 || request.status === 403) {
@@ -33,23 +45,9 @@ function PutCliente(){
             console.log("JSON: " + json);
             console.log("Status: " + status);
 
-            console.log("Nombre: "+ json[0].nombre);
-            console.log("Email: "+ json[0].email);
-
-            let nombre  = document.getElementById("nombre");
-            let email   = document.getElementById("email");
-
-            nombre.value    = json[0].nombre;
-            email.value     = json[0].email;
+            alert(json.message);
+            window.location.replace("/templates/get_clientes.html")
         }
-        else if(status==404){
-            let nombre  = document.getElementById("nombre");
-            let email   = document.getElementById("email");
-
-            nombre.value    = "None";
-            email.value     = "None";
-            alert("Cliente no encontrado");
-        }
-    }
-    request.send();
+    };
+    request.send(JSON.stringify(payload));
 }
