@@ -41,7 +41,7 @@ function PostCliente(){
             console.log("Status: " + status);
 
             alert(json.message);
-            //window.location.replace("/templates/get_clientes.html")
+            window.location.replace("/templates/get_clientes.html")
         }
     };
     request.send(JSON.stringify(payload));
