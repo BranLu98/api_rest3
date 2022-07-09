@@ -8,7 +8,7 @@ function getCliente(){
     console.log("id_cliente: " + id_cliente);
     
     
-    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us51.gitpod.io/clientes/{id}?id_cliente="+ id_cliente,true);
+    request.open('GET', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/{id}?id_cliente="+ id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
 
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))

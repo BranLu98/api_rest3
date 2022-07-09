@@ -34,6 +34,7 @@ class ClienteIN(BaseModel):
 origin = [
     "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
     "https://8080-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
+    "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
     
     
 ]
@@ -89,7 +90,7 @@ async def get_clientes(level: int = Depends(get_current_level)):
 
 @app.get("/clientes/{id}", response_model=List[Cliente],status_code=status.HTTP_202_ACCEPTED,
 summary="Regresa una lista de un usuario",description="Regresa una lista de usuarios")
-async def get_clientesid(level: int = Depends(get_current_level),id_cliente: int=0):
+async def get_cliente_id(id_cliente: int=0, level: int = Depends(get_current_level)):
     if level == 1: 
         with sqlite3.connect(DATABASE_URL) as connection:
             connection.row_factory = sqlite3.Row
