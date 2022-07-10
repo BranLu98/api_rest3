@@ -15,7 +15,7 @@ function getClientes() {
     var tblHead = document.createElement("thead");
 
     tblHead.innerHTML = `
-        <tr class="w3-green">
+        <tr class="w3-blue">
             <th>ID Cliente</th>
             <th>Nombre</th>
             <th>Email</th>
