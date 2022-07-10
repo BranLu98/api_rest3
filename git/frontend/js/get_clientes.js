@@ -15,13 +15,13 @@ function getClientes() {
     var tblHead = document.createElement("thead");
 
     tblHead.innerHTML = `
-        <tr>
-            <th>Detalle</th>
-            <th>Actualizar</th>
-            <th>Borrar</th>
+        <tr class="w3-green">
             <th>ID Cliente</th>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Detalle</th>
+            <th>Actualizar</th>
+            <th>Borrar</th>
         </tr>`;
 
     request.onload = () => {
@@ -37,27 +37,28 @@ function getClientes() {
             const json = JSON.parse(response);
             for (let i = 0; i < json.length; i++) {
                 var tr          = document.createElement('tr');
-                var detalle     = document.createElement('td');
-                var actualizar  = document.createElement('td');
-                var borrar      = document.createElement('td');
                 var id_cliente  = document.createElement('td');
                 var nombre      = document.createElement('td');
                 var email       = document.createElement('td');
+                var detalle     = document.createElement('td');
+                var actualizar  = document.createElement('td');
+                var borrar      = document.createElement('td');
 
-                detalle.innerHTML       = "<a href='/templates/get_cliente.html?"+json[i].id_cliente+"'>Detalle</a";
-                actualizar.innerHTML    = "<a href='/templates/update_clientes.html?"+json[i].id_cliente+"'>Actualizar</a";
-                borrar.innerHTML        = "<a href='/templates/delete_clientes.html?"+json[i].id_cliente+"'>Borrar</a";
+            
                 id_cliente.innerHTML    = json[i].id_cliente;
                 nombre.innerHTML        = json[i].nombre;
                 email.innerHTML         = json[i].email;
+                detalle.innerHTML       = "<a class='btn btn-info btn-sm' href='/templates/get_cliente.html?"+json[i].id_cliente+"'><span class='glyphicon glyphicon-list-alt'></span>  Detalle</a>";
+                actualizar.innerHTML    = "<a class='btn btn-info btn-sm' href='/templates/update_clientes.html?"+json[i].id_cliente+"'><span class='glyphicon glyphicon-pencil'></span>  Actualizar</a>";
+                borrar.innerHTML        = "<a class='btn btn-info btn-sm' href='/templates/delete_clientes.html?"+json[i].id_cliente+"'><span class='glyphicon glyphicon-trash'>  Borrar</a>";
+                
 
-                tr.appendChild(detalle);
-                tr.appendChild(actualizar);
-                tr.appendChild(borrar);
                 tr.appendChild(id_cliente);
                 tr.appendChild(nombre);
                 tr.appendChild(email);
-                
+                tr.appendChild(detalle);
+                tr.appendChild(actualizar);
+                tr.appendChild(borrar);                
                 tblBody.appendChild(tr);
             }
             tabla.appendChild(tblHead);
