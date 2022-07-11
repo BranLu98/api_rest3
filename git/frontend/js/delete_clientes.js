@@ -8,7 +8,8 @@ function DeleteCliente(){
     console.log("id_cliente: " + id_cliente);
     
     
-    request.open('DELETE', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/?id_cliente="+ id_cliente,true);
+    //request.open('DELETE', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/?id_cliente="+ id_cliente,true); 
+    request.open('DELETE', "http://127.0.0.1:8000/clientes/"+ id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
 
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))

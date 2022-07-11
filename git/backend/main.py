@@ -32,10 +32,11 @@ class ClienteIN(BaseModel):
     email : str
 
 origin = [
-    "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
-    "https://8080-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
-    "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
-    
+    #"https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
+    #"https://8080-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
+    #"https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/",
+    "http://127.0.0.1:8000/",
+    "http://0.0.0.0:8080/",
     
 ]
 

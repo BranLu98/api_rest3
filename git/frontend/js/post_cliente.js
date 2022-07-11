@@ -17,7 +17,8 @@ function PostCliente(){
     console.log(payload);
     
     var request = new XMLHttpRequest();
-    request.open('POST', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
+    //request.open('POST', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
+    request.open('POST', "http://127.0.0.1:8000/clientes/",true);
     request.setRequestHeader("Content-Type", "application/json");
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))

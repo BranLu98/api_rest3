@@ -22,7 +22,8 @@ function PutCliente(){
     console.log(payload);
     
     
-    request.open('PUT', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
+    //request.open('PUT', "https://8000-branlu98-apirest3-h3yy7jhekr3.ws-us53.gitpod.io/clientes/",true);
+    request.open('PUT', "http://127.0.0.1:8000/clientes/",true);
     request.setRequestHeader("Accept", "application/json");
 
     request.setRequestHeader("Authorization", "Basic " + btoa(usernombre + ":" + password))
