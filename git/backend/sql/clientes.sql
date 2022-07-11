@@ -2,12 +2,14 @@ DROP TABLE IF EXISTS clientes;
 CREATE TABLE  clientes( 
     id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,  
     nombre varchar(50) NOT NULL, 
-    email varchar(50) NOT NULL); 
- 
-INSERT INTO clientes(nombre,email) VALUES("Brandon","patolucas.bbl@gmail.com"); 
-INSERT INTO clientes(nombre,email) VALUES("Erick","Erickbabytaz@gmail.com"); 
-INSERT INTO clientes(nombre,email) VALUES("Toño","TonyBalde@gmail.com"); 
- 
+    email varchar(50) NOT NULL);  
+
+INSERT INTO clientes(nombre,email) VALUES("José Antonio Balderas Lucas","TonyBalde@gmail.com"); 
+INSERT INTO clientes(nombre,email) VALUES("Erick Balderas Lucas","Erickbabytaz@gmail.com"); 
+INSERT INTO clientes(nombre,email) VALUES("Brandon Balderas Lucas","patolucas.bbl@gmail.com");
+INSERT INTO clientes(nombre,email) VALUES("Miriam Arely Balderas Lucas","TonyBalde@gmail.com"); 
+
+
 .headers ON 
  
 SELECT *FROM clientes;

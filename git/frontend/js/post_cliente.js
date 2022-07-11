@@ -40,8 +40,14 @@ function PostCliente(){
             console.log("JSON: " + json);
             console.log("Status: " + status);
 
-            alert(json.message);
-            window.location.replace("/templates/get_clientes.html")
+            Swal.fire({
+                title: json.message,
+                text: "Regresar a la lista de clientes ",
+                type: "success"
+            }).then(function() {
+                window.location = "/templates/get_clientes.html";
+            });
+            
         }
     };
     request.send(JSON.stringify(payload));
